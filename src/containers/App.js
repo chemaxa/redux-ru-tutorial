@@ -1,20 +1,18 @@
-import React, {
-  Component
-} from 'react';
-import {
-  connect
-} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Page from '../components/Page'
+import User from '../components/User'
 
 class App extends Component {
 
   render() {
-    let { name } = this.props.user;
-    let { year, photos } = this.props.page;
+    let { user,page } = this.props;
 
     return (<div>
-       <h1> Hello {name}! </h1>
-       <p>You have {photos.length} in {year}</p>
-      </div>)
+      <User user={user} />
+      <Page page={page} />
+      </div>
+    )
   }
 }
 
