@@ -8,16 +8,21 @@ import {
 class App extends Component {
 
   render() {
-    let { name, surname, age } = this.props.user;
+    let { name } = this.props.user;
+    let { year, photos } = this.props.page;
 
-    return ( <h1> Hello {name} {surname}, with {age} old! </h1>)
+    return (<div>
+       <h1> Hello {name}! </h1>
+       <p>You have {photos.length} in {year}</p>
+      </div>)
   }
 }
 
-const mapStateToPros = (state)=>{
+const mapStateToProps = (state)=>{
   return {
-    user: state
+    user: state.user,
+    page: state.page
   }
 }
 
-export default connect(mapStateToPros)(App);
+export default connect(mapStateToProps)(App);
