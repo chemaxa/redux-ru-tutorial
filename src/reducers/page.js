@@ -3,6 +3,11 @@ const initialState = {
   photos: []
 }
 
-export default function user(state = initialState){
-  return state;
+export default function user(state = initialState, action){
+  switch(action.type){
+    case 'SET_YEAR':
+      return {...state, year: action.payload}
+    default:
+      return state;
+  }
 }
