@@ -5,3 +5,4 @@
 [Containers](https://maxfarseer.gitbooks.io/redux-course-ru/content/konteineri_i_komponenti.html)
 [Создание actions](https://maxfarseer.gitbooks.io/redux-course-ru/content/sozdanie_actions.html)
 [Константы](https://maxfarseer.gitbooks.io/redux-course-ru/content/konstanti.html)
+[Middleware](https://maxfarseer.gitbooks.io/redux-course-ru/content/usiliteli_logger.html)
