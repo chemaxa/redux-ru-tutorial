@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 
-export default class User extends Component {
+export default class Page extends Component {
   constructor(){
     super();
     this.onYearBtnClick=this.onYearBtnClick.bind(this);
@@ -10,10 +10,11 @@ export default class User extends Component {
     photos: PropTypes.array.isRequired
   }
   onYearBtnClick(e){
-    this.props.setYear(+e.target.textContent)
+    this.props.getPhotos(+e.target.textContent)
   }
   render(){
-    const { year, photos } = this.props.page;
+
+    const { year, photos, fetching } = this.props.page;
     return(
       <div>
         <nav className='navbar navbar-toggleable-md navbar-light bg-faded'>
@@ -21,9 +22,9 @@ export default class User extends Component {
             <span className='navbar-toggler-icon'></span>
           </button>
           <div className='collapse navbar-collapse' id='navbarNav'>
-            <span className='navbar-text mr-auto'>
-              You have {photos.length} in {year} 
-            </span>
+            <div className='navbar-text mr-auto'>
+              { fetching ?  <p>Loading...</p>  :  <p>You have {photos.length} in {year} </p>  }
+            </div>
             <ul className='navbar-nav'>
               <li className={year == 2016 ? 'nav-item active' : 'nav-item'}>
                 <a className='nav-link' onClick={this.onYearBtnClick}> 2016 </a>
