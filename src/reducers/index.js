@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import page from './page'
-import user from './user'
+import forecast from './forecast'
+import cityList from './cityList'
 
 export default combineReducers({
-  user,
-  page
+  cityList,
+  forecast
 });

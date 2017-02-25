@@ -1,31 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Page from '../components/Page';
-import User from '../components/User';
-import * as pageActions from '../actions/pageActions';
+import Forecast from '../components/Forecast';
+import CityList from '../components/CityList';
+import * as cityListActions from '../actions/cityListActions';
 
 class App extends Component {
-
   render() {
-    let { user, page} = this.props;
-    let { getPhotos } = this.props.pageActions;
+    let { cityList, forecast } = this.props;
     return (<div>
-      <Page page={page} getPhotos={getPhotos}/>
-      <User user={user} />
+      <Forecast forecast={forecast} />
+      <CityList cityList={cityList} actions = {this.props.cityListActions} />
       </div>
     )
   }
 }
 const mapDispatchToProps = (dispatch)=>{
   return {
-    pageActions: bindActionCreators(pageActions,dispatch)
+    cityListActions: bindActionCreators(cityListActions,dispatch)
   }
 }
 const mapStateToProps = (state)=>{
   return {
-    user: state.user,
-    page: state.page
+    cityList: state.cityList,
+    forecast: state.forecast
   }
 }
 
